@@ -1,0 +1,37 @@
+<resources>
+    <!--- Branding -->
+    <string name="app_name">HealthyFit</string>
+    <string name="slogan_title">Social Sports community</string>
+
+    <!--- Home -->
+    <string name="title_home">Home</string>
+
+    <!--- Dashboard -->
+    <string name="title_dashboard">Dashboard</string>
+
+    <!--- Notifications -->
+    <string name="title_notifications">Notifications</string>
+
+    <!--- Login/Register -->
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="register_button">Create an account</string>
+    <string name="login_button">Login</string>
+    <string name="login_title">Login</string>
+    <string name="google_button">Google</string>
+    <!--- Selection -->
+    <string name="selection_header_top">Start your</string>
+    <string name="selection_header_mid">journey</string>
+    <string name="selection_header_bottom">now</string>
+
+    <string name="title_login">Login</string>
+    <string name="facebook">Facebook</string>
+    <string name="selection_title_or">or</string>
+</resources>

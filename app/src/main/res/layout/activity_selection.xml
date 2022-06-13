@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background_image"
+    tools:context="com.fitnessproject.myapplication.SelectionActivity">
+
+    <Button
+        android:id="@+id/selectionButtonRegister"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="196dp"
+        android:width="@dimen/button_width"
+        android:height="@dimen/button_height"
+        android:background="@drawable/button_border"
+        android:fontFamily="@font/segoe_ui_bold"
+        android:text="@string/register_button"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectionTitleTextBottom"
+        app:layout_constraintVertical_bias="0.274" />
+
+    <TextView
+        android:id="@+id/selectionTitleTextTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/segoe_ui_bold"
+        android:text="@string/selection_header_top"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/text_size_selection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.415" />
+
+    <TextView
+        android:id="@+id/selectionTitleTextMid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoe_ui_bold"
+        android:text="@string/selection_header_mid"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_selection"
+        app:layout_constraintStart_toStartOf="@+id/selectionTitleTextTop"
+        app:layout_constraintTop_toBottomOf="@+id/selectionTitleTextTop" />
+
+    <TextView
+        android:id="@+id/selectionTitleTextBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoe_ui_bold"
+        android:text="@string/selection_header_bottom"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/text_size_selection"
+        app:layout_constraintStart_toStartOf="@+id/selectionTitleTextMid"
+        app:layout_constraintTop_toBottomOf="@+id/selectionTitleTextMid" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_stencil"
+        app:layout_constraintBottom_toTopOf="@+id/selectionTitleTextTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.621" />
+
+    <Button
+        android:id="@+id/selectionButtonLogin"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="36dp"
+        android:width="@dimen/button_width"
+        android:height="@dimen/button_height"
+        android:background="@drawable/button"
+        android:fontFamily="@font/segoe_ui_bold"
+        android:text="@string/login_title"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="@+id/selectionTitleTextBottom"
+        app:layout_constraintTop_toBottomOf="@+id/selectionTitleTextBottom" />
+
+    <Button
+        android:id="@+id/selectionButtonGoogle"
+        android:layout_width="170dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_border"
+        android:drawableLeft="@drawable/google"
+        android:fontFamily="@font/segoe_ui_bold"
+        android:text="@string/google_button"
+        android:textAllCaps="false"
+        android:textColor="@color/textPrimary"
+        app:layout_constraintStart_toStartOf="@+id/selectionButtonLogin"
+        app:layout_constraintTop_toBottomOf="@+id/selectionButtonLogin" />
+
+    <Button
+        android:id="@+id/selectionButtonFacebook"
+        android:layout_width="170dp"
+        android:layout_height="48dp"
+        android:background="@drawable/button_border"
+        android:drawableLeft="@drawable/facebook"
+        android:fontFamily="@font/segoe_ui_bold"
+        android:text="@string/facebook"
+        android:textAllCaps="false"
+        android:textColor="@color/textPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/selectionButtonGoogle"
+        app:layout_constraintEnd_toEndOf="@+id/selectionButtonLogin"
+        app:layout_constraintTop_toTopOf="@+id/selectionButtonGoogle"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoe_ui_bold"
+        android:textAllCaps="true"
+        android:text="@string/selection_title_or"
+        android:textColor="@color/textPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/selectionButtonRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectionButtonGoogle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
