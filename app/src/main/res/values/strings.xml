@@ -34,4 +34,5 @@
     <string name="title_login">Login</string>
     <string name="facebook">Facebook</string>
     <string name="selection_title_or">or</string>
+    <string name="register_title">Register</string>
 </resources>

@@ -40,42 +40,53 @@ public class SelectionActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        // create launcher menu
         launcher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
+                    // Get result from user and convert it from intent
                     Task<GoogleSignInAccount> task
                             = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+                    //  Check, if we can connect account and get data from it or not
                     try {
                         GoogleSignInAccount account = task.getResult(ApiException.class);
                         if(account != null) {
                             firebaseAuthWithGoogle(account.getIdToken());
                         }
+                        startActivity(new Intent(this, MainActivity.class));
                     } catch (ApiException e) {
                         Log.d("API EXCEPTION", e.toString());
                     }
                 });
 
-
+        // Set on click listener on button Google
         binding.selectionButtonGoogle.setOnClickListener(v -> {
+
             signInWithGoogle();
         });
+        // Set on click listener on button Login
+        binding.selectionButtonLogin.setOnClickListener(v -> {
 
-        binding.selectionButtonLogin.setOnClickListener(v ->
-                startActivity(new Intent(this, LoginActivity.class))
+                if(auth.getCurrentUser() == null)
+                    startActivity(new Intent(this, LoginActivity.class));
+                else
+                    checkAuthState();
+            }
         );
-        //        Hide status bar
+        // This method hides tool bar
         hideStatusBar();
 
+        // Check if user was already logged in using google or not
+        checkAuthState();
     }
 
-
+    // send clients like an intent
     public void signInWithGoogle() {
         GoogleSignInClient signInClient = getClient();
         launcher.launch(signInClient.getSignInIntent());
     }
 
-
-
+    // We create a google client that will show all accounts on the device
     private GoogleSignInClient getClient() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -84,12 +95,14 @@ public class SelectionActivity extends AppCompatActivity {
         return GoogleSignIn.getClient(this, gso);
     }
 
-
+    // connect google account to firebase
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         auth.signInWithCredential(credential).addOnCompleteListener(command -> {
             if(command.isSuccessful()) {
                 Log.d("My log", "Google sign in done");
+                // Check account
+                checkAuthState();
             }else {
                 Log.d("My log", "Google sign in error");
             }
@@ -101,10 +114,16 @@ public class SelectionActivity extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.hide();
 
     }
 
-
+    // If user is already logged in we go to main activity
+    private void checkAuthState() {
+        if(auth.getCurrentUser() != null) {
+            startActivity(new Intent(this, MainActivity.class));
+        }
+    }
 
 }

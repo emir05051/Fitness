@@ -10,4 +10,6 @@
     <dimen name="gradient_angle">45</dimen>
     <dimen name="text_size_selection">40sp</dimen>
 
+    <dimen name="button_green_height">50dp</dimen>
+    <dimen name="button_green_width">300dp</dimen>
 </resources>

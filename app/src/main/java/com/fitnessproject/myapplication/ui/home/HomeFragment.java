@@ -14,11 +14,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.fitnessproject.myapplication.R;
 import com.fitnessproject.myapplication.databinding.FragmentHomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+    private FirebaseAuth auth;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,12 +34,19 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        // get data about user
 
+        // Sign out
+        auth = FirebaseAuth.getInstance();
+        binding.homeSignOutButton.setOnClickListener(v -> {
+            if(auth.getCurrentUser() != null)
+                auth.signOut();
+        });
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                textView.setText(String.format("It's main"));
             }
         });
         return root;
